@@ -51,6 +51,10 @@ app.get("/add", function(req, res) {
   res.sendFile(path.join(__dirname, "add.html"));
 });
 
+app.get("/viewall", function(req, res) {
+  res.sendFile(path.join(__dirname, "viewall.html"));
+});
+
 // Displays all characters
 app.get("/api/characters", function(req, res) {
   return res.json(characters);
