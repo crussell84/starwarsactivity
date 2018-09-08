@@ -43,12 +43,12 @@
           </div>
           <div class="panel-body">
             <div class="well">
-              <h2 id="name">Yoda</h2>
+              <!-- <h2 id="name">Yoda</h2>
               <div id="stats">
                 <h3><strong>Role:</strong> <span id="role">Jedi Master</span></h3>
                 <h3><strong>Age:</strong> <span id="age">900</span></h3>
                 <h3><strong>Force Points:</strong> <span id="force-points">2000</span></h3>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -61,8 +61,11 @@
   $.get("/api/characters", function(data){
       data.forEach(function(character){
           var newDiv = $("<div class='well'></div>");
-          var name = $(`<h2>${character.name}</h2>`)
-          newDiv.append(name);
+          var name = $(`<h2>${character.name}</h2>`);
+          var role = $(`<h3><strong>Role:</strong> ${character.role}</h3>`);
+          var age = $(`<h3><strong>Age:</strong> ${character.age}</h3>`);
+          var force = $(`<h3><strong>Force Points:</strong> ${character.forcePoints}</h3>`);
+          newDiv.append([name,role,age,force]);
           display.append(newDiv);
       })
   })
